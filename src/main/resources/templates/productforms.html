@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Add New Product </title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Add New Product </h2>
+
+    <div>
+        <form class="form-horizontal" th:object="${product}" th:action="@{/product}"  method="post">
+
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Product Name:</label>
+                <div class="col-sm-10">
+
+                    <input type="text"   class="form-control" th:field="*{product_name}" id="product_name"/>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Price:</label>
+                <div class="col-sm-10">
+                    <input type="text"   class="form-control" th:field="*{product_price}" id="product_price"/>
+
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Product Description:</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" th:field="*{product_description}" id="product_description"/>
+
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <button type="submit" class="btn btn-default">Add Product</button>
+            </div>
+
+
+
+        </form>
+    </div>
+
+
+</div>
+
+</body>
+</html>

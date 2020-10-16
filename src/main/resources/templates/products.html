@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Product list</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(products)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+
+                <th>Product Id</th>
+                <th>Product price</th>
+                <th>Product name</th>
+                <th>Product Description</th>
+                <th>Operation</th>
+
+            </tr>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.pid}">Id</a></td>
+                <td th:text="${product.product_price}">product_price</td>
+                <td th:text="${product.product_name}">product_name</td>
+                <td th:text="${product.product_description}">product_description</td>
+
+                <td><a th:href="${'/product/' + product.pid}">View</a></td>
+                <td><a th:href="${'/product/edit/' + product.pid}">Edit</a></td>
+                <td><a th:href="${'/product/delete/' + product.pid}">Delete</a></td>
+
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
